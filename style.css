@@ -21,6 +21,10 @@ img {
   display: inline-block;
 }
 
+.bg-img{
+  object-fit: cover;
+}
+
 a{
   text-decoration: none;
   color: initial;
@@ -324,6 +328,20 @@ body {
   z-index: 9;
 }
 
+.hero-intro{
+  padding-bottom: 10%;
+  position: absolute;
+  top: auto;
+  right: 0%;
+  bottom: 0%;
+  left: 0%;
+}
+
+.intro-text{
+  font-size: 1rem;
+  text-align: center;
+}
+
 .section-black {
   width: 100%;
   height: auto;
@@ -354,6 +372,7 @@ body {
 .headline-bullet-text {
   font-size: 0.8rem;
   font-weight: 500;
+  text-align: center;
 }
 
 .headline-bullet-dash {
@@ -430,6 +449,12 @@ body {
   height: auto;
 }
 
+.traffic-headline, .container-intro{
+  display: flex;
+  flex-direction: column;
+  grid-row-gap: 1rem;
+}
+
 .btn-link {
   width: 100%;
   height: auto;
@@ -456,6 +481,11 @@ body {
   background-color: var(--dust-background);
   grid-column-gap: 1.5rem;
   padding: 1rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-column-gap: 1rem;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .net-earth {
@@ -581,7 +611,7 @@ body {
 
 .container-quote {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr auto;
   grid-column-gap: 8rem;
   position: relative;
 }
@@ -1002,7 +1032,7 @@ a.btn-link-scd {
 
   .container-quote{
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr auto;
     grid-row-gap: 4rem;
   }
 
@@ -1044,5 +1074,88 @@ a.btn-link-scd {
 
   .container-header h1{
     font-size: 1.5rem;
+  }
+
+  .hero-earth{
+    max-width: 100%;
+  }
+
+  #hero{
+    height: 80vh;
+  }
+
+  h2{
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .large-text{
+    font-size: 1rem;
+  }
+
+  .large-text-1{
+    font-size: 0.9rem;
+  }
+
+  .traffic-btn{
+    width: 70%;
+    max-width: 70%;
+  }
+
+  .container-header-lottie{
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width:425px) {
+  h2{
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+  }
+
+  .container-header-lottie{
+    font-size: 1.5rem;
+  }
+
+  .container-gap1{
+    padding: 0;
+  }
+
+  .padding-container{
+    padding: 0 1rem;
+  }
+
+  .container-tips{
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    justify-content: center;
+    text-align: center;
+    justify-items: center;
+  }
+
+  .traffic-btn{
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .vid-intro{
+    grid-row-gap: 3rem;
+    grid-column-gap: 3rem;
+  }
+
+  .intro{
+    grid-row-gap: 2rem;
+  }
+
+  .banner-slider img{
+    max-width: 200px;
+  }
+
+  .text-slider h1{
+    font-size: 1.5rem;
+  }
+
+  .container-border-black{
+    padding: 1rem;
   }
 }
