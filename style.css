@@ -245,14 +245,34 @@ body {
 }
 
 .hero-slogan-wrapper {
-  display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  position: relative;
 }
 
-.hero-slogan-wrapper-text {
+.hero-slogan-wrapper-text1 {
   font-size: 1em;
+  position: relative;
+  display: block;
+}
+
+.hero-slogan-wrapper-text2{
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
+  left: 0%;
+}
+
+.hero-slogan-wrapper-text3{
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
+  left: 0%;
 }
 
 .hero-bottom-img {
@@ -284,16 +304,19 @@ body {
   height: auto;
 }
 
+@keyframes planet {
+  from {transform: rotateZ(0deg);}
+  to {transform: rotateZ(360deg);}
+}
+
 .earth-img {
   z-index: 1;
+  animation: planet 30s infinite linear;
 }
 
 .earth-00 {
   z-index: 0;
-}
-
-.earth-01 {
-  z-index: 1;
+  animation: planet 30s infinite linear;
 }
 
 .earth-02 {
@@ -302,18 +325,22 @@ body {
 
 .earth-03 {
   z-index: 3;
+  animation: planet 52s infinite linear;
 }
 
 .earth-04 {
   z-index: 4;
+  animation: planet 60s infinite linear;
 }
 
 .earth-05 {
   z-index: 5;
+  animation: planet 45s infinite linear;
 }
 
 .earth-06 {
   z-index: 6;
+  animation: planet 90s infinite linear;
 }
 
 .earth-07 {
@@ -978,7 +1005,7 @@ a.btn-link-scd {
     font-size: 2em;
   }
 
-  .hero-slogan-wrapper-text {
+  .hero-slogan-wrapper-text1 {
     font-size: 1em;
   }
 }
