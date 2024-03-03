@@ -96,6 +96,7 @@ a{
   border-radius: 16px;
   text-decoration: none;
   padding: .5rem 1rem;
+  transition: .1s linear;
 }
 
 .rounded {
@@ -212,6 +213,10 @@ body {
   text-align: center;
 }
 
+.headBanner-brand a{
+  color: var(--text-main-color);
+}
+
 #headMenu {
   position: relative;
   padding: 5px 32px;
@@ -230,6 +235,15 @@ body {
   margin: auto 1vw;
   list-style: none;
   display: inline-block;
+  transition: .5s linear;
+  border-bottom: 1px solid var(--main-black);
+}
+
+#headMenu li:hover {
+  border-bottom: 1px solid var(--text-main-color);
+}
+
+#headMenu li a{
   color: var(--text-main-color);
 }
 
@@ -319,6 +333,7 @@ body {
   position: relative;
   width: 100%;
   height: auto;
+  transition: .1s ease;
 }
 
 .hero-earth img {
@@ -503,6 +518,10 @@ body {
   height: auto;
 }
 
+.traffic-btn{
+  width: 50%;
+}
+
 .traffic-headline, .container-intro{
   display: flex;
   flex-direction: column;
@@ -653,6 +672,7 @@ body {
 
 .header-lottie{
   width: 100%;
+  transition: .3s ease;
 }
 
 #l-header2{
@@ -831,6 +851,12 @@ body {
   padding: 2rem;
   box-sizing: border-box;
   justify-content: space-between;
+  transition: .3s linear;
+}
+
+.service-cards:hover{
+  transform: translateY(-10px);
+  box-shadow: 0px 10px 15px var(--dust-background);
 }
 
 .list-services {
@@ -903,8 +929,8 @@ a.btn-link-scd {
   left: 0;
   right: 0;
   white-space: nowrap;
-  overflow: hidden;
   margin: auto;
+  transition: .5s ease;
 }
 
 .slider-wrapping {
@@ -913,6 +939,7 @@ a.btn-link-scd {
   justify-content: center;
   align-items: center;
   position: relative;
+  overflow: hidden;
 }
 
 .banner-slider {
@@ -939,9 +966,9 @@ a.btn-link-scd {
 
 .button-slider {
   font-size: 3rem;
-  position: absolute;
-  width: 48px;
-  height: 48px;
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 .arrow-preveous {
@@ -949,9 +976,9 @@ a.btn-link-scd {
   bottom: 0%;
   left: 0%;
   right: auto;
-  width: 3rem;
-  height: 3rem;
-  position: relative;
+  width: auto;
+  height: auto;
+  position: absolute;
 }
 
 .arrow-next {
@@ -960,8 +987,8 @@ a.btn-link-scd {
   bottom: 0%;
   left: auto;
   right: 0%;
-  width: 3rem;
-  height: 3rem;
+  width: auto;
+  height: auto;
 }
 
 .slider-page{

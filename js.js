@@ -140,15 +140,81 @@
                     lheader[0].style.transform = "translate3d(" + (75 - (rate * 75) / ap) + "%,0,0)";
                     lheader[1].style.transform = "translate3d(" + (10 - (rate * 10) / ap) + "%,0,0)";
                     lheader[2].style.transform = "translate3d(" + (- 75 + (rate * 75) / ap) + "%,0,0)";
-                    mt[0].style.transform = "translate3d(0," + (- 20 +(30*rate)/ap) + "%,0)";
-                    mt[1].style.transform = "translate3d(0," + (- 20 + (30*rate)/ap) + "%,0)";
-                    mt[2].style.transform = "translate3d(0," + (- 20 + (30*rate)/ap) + "%,0)";
+                    mt[0].style.transform = "translate3d(0," + (- 20 + (30 * rate) / ap) + "%,0)";
+                    mt[1].style.transform = "translate3d(0," + (- 20 + (30 * rate) / ap) + "%,0)";
+                    mt[2].style.transform = "translate3d(0," + (- 20 + (30 * rate) / ap) + "%,0)";
                 }
             }
 
 
         }
     }
+
+    let pb = document.getElementsByClassName("btn-primary");
+    for (let i = 0; i < pb.length; i++) {
+        pb[i].addEventListener("mousemove", function (e) {
+            var pos = pb[i].getBoundingClientRect(); // Get the position of the element relative to the viewport
+            var mx = e.clientX; // Get the mouse position when
+            var my = e.clientY; // mousemove on the element
+            if (mx && my) {
+                pb[i].style.transform = 'translate3d(' + Math.ceil((mx <= (pos.left + pos.width / 2)) ? (0.1 * (mx - pos.right)) : (0.1 * (mx - pos.left))) + 'px,' + Math.ceil((my <= (pos.top + pos.height / 2)) ? (0.2 * (my - pos.bottom)) : (0.2 * (my - pos.top))) + 'px,0)';
+                pb[i].style.setProperty('box-shadow', '' + Math.ceil((mx <= (pos.left + pos.width / 2)) ? (-0.1 * (mx - pos.right)) : (-0.1 * (mx - pos.left))) + 'px ' + Math.ceil((my <= (pos.top + pos.height / 2)) ? (-0.1 * (my - pos.bottom)) : (-0.1 * (my - pos.top))) + 'px 30px var(--main-black)');
+            }
+        });
+
+        pb[i].addEventListener("mouseleave", function () {
+            pb[i].style.transform = 'none'; // Reset the transform when the mouse leaves
+            pb[i].style.setProperty('box-shadow', 'none');
+        });
+    }
+
+    let Slider = document.querySelector(".slider");
+    let prevS = document.getElementById("prevS");
+    let nextS = document.getElementById("nextS");
+    let totalBanners = document.getElementsByClassName("container-grid-layout2").length - 1;
+    let sd = document.getElementsByClassName("slider-dot");
+    let currentBanner = 0;
+    let step = 0;
+
+    function sliderMove(element ,direction) {
+        element.style.transform = 'translateX(' + direction + '%)';
+    }
+
+    prevS.onclick = function () {
+        sd[currentBanner].classList.remove("active-page");
+        currentBanner--;
+        step += 100;
+        if (currentBanner < 0){
+            currentBanner = totalBanners;
+            step = -step*totalBanners;
+            sliderMove(Slider, step);
+            sd[currentBanner].classList.add("active-page");
+            return;
+        }
+        sliderMove(Slider, step);
+        sd[currentBanner].classList.add("active-page");
+    };
+
+    nextS.onclick = function () { 
+        sd[currentBanner].classList.remove("active-page");
+        currentBanner++;
+        step -= 100;
+        if (currentBanner === (totalBanners + 1)){
+            currentBanner = 0;
+            step = 0;
+        }
+        sliderMove(Slider, step);
+        sd[currentBanner].classList.add("active-page");
+    };
+
+    for (let isd = 0; isd < sd.length; isd++) {
+        sd[isd].addEventListener("click", function (){
+            sliderMove(Slider, -100*isd);
+            sd[currentBanner].classList.remove("active-page");
+            sd[isd].classList.add("active-page");
+            currentBanner = isd;
+        });
+    };
 })();
 
 
